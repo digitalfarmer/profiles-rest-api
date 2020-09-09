@@ -7,7 +7,7 @@ from django.contrib.auth.models import BaseUserManager
 class UserProfileManager(BaseUserManager):
     """Help Django work with our custom our model"""
 
-    def create_user(self, name, email, password=None):
+    def create_user(self, email, name, password=None):
         """Createna new user profile object"""
 
         if not email:
@@ -28,8 +28,7 @@ class UserProfileManager(BaseUserManager):
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
-
-
+ 
         return user
 
 
